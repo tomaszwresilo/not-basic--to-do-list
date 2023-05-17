@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "parcel-plugin-prettier": "^0.2.1"
+  }
+}
