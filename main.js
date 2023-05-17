@@ -1,14 +1,16 @@
-import "./style.css";
-// dodac localstorage https://blog.logrocket.com/localstorage-javascript-complete-guide/
 document.addEventListener("DOMContentLoaded", () => {
   const shoppingList = document.querySelector("ul");
   const shoppingAdButton = document.querySelector("#addToList");
   const shoppingInput = document.querySelector("#nameProductToList");
   const removeList = document.querySelector("#removeList");
 
+  document.onselectstart = function() {
+    return false;
+  };
+
   function addElementToList() {
     if (shoppingInput.value === "") {
-      alert("Wpisz nazwę produktu!");
+      alert("Enter something!");
     } else {
       const newLi = document.createElement("li");
       newLi.innerText = shoppingInput.value;
@@ -17,13 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  shoppingAdButton.addEventListener("click", (event) => {
+  shoppingAdButton.addEventListener("click", event => {
     event.preventDefault();
     addElementToList();
   });
 
   // dodac to do funkcji
-  removeList.addEventListener("click", (event) => {
+  removeList.addEventListener("click", event => {
     event.preventDefault();
     while (shoppingList.firstChild) {
       shoppingList.removeChild(shoppingList.firstChild);
@@ -36,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  shoppingList.addEventListener("click", (event) => {
+  shoppingList.addEventListener("click", event => {
     if (event.target.style.textDecoration === "line-through") {
       event.target.style.textDecoration = "";
     } else {

@@ -1,0 +1,6 @@
+1. Dodać localstorage https://blog.logrocket.com/localstorage-javascript-complete-guide/
+2. Dodać liczbę elementów niepkrzekreślonych (niewykonanych)
+3. Dodać usuwanie jednego elementu
+4. Dodać wyświetlanie All/Active/Completed
+5. Dodać proste ale ładne (nawet bardzo) style zwykłe i mobilne
+6. Zadbać o semantyke i dostępność 
