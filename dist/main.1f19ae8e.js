@@ -161,6 +161,13 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       event.target.style.textDecoration = "line-through";
     }
+    document.addEventListener("click", function (event) {
+      var target = event.target;
+      var isOutside = !shoppingAdButton.contains(target) && !shoppingInput.contains(target) && !removeList.contains(target);
+      if (isOutside && shoppingInput.value !== "") {
+        shoppingInput.value = "";
+      }
+    });
   });
   // function handleFocus() {
   //   if (this.value === "Create new todo...") {
@@ -202,7 +209,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === "https:" ? "wss" : "ws";
-  var ws = new WebSocket(protocol + "://" + hostname + ":" + "55107" + "/");
+  var ws = new WebSocket(protocol + "://" + hostname + ":" + "57755" + "/");
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -45,6 +45,16 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       event.target.style.textDecoration = "line-through";
     }
+    document.addEventListener("click", event => {
+      const target = event.target;
+      const isOutside =
+        !shoppingAdButton.contains(target) &&
+        !shoppingInput.contains(target) &&
+        !removeList.contains(target);
+      if (isOutside && shoppingInput.value !== "") {
+        shoppingInput.value = "";
+      }
+    });
   });
   // function handleFocus() {
   //   if (this.value === "Create new todo...") {
