@@ -1,10 +1,12 @@
 {
   "name": "todo-application",
-  "version": "1.1.0",
   "homepage": "https://tomaszwresilo.github.io/not-basic--to-do-list",
+  "version": "1.1.0",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --public-url ./"
+    "build": "parcel build index.html",
+    "deploy": "rm -rf dist/ && npm run build && gh-pages -d dist",
+    "postdeploy": "echo https://tomaszwresilo.github.io/not-basic--to-do-list"
   },
   "dependencies": {
     "@babel/preset-env": "^7.21.5",
