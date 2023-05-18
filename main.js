@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       newLi.innerText = shoppingInput.value;
       shoppingList.appendChild(newLi);
       shoppingInput.value = "";
+      // shoppingInput.placeholder = "Create new todo...";
     }
   }
 
@@ -45,4 +46,19 @@ document.addEventListener("DOMContentLoaded", () => {
       event.target.style.textDecoration = "line-through";
     }
   });
+  // function handleFocus() {
+  //   if (this.value === "Create new todo...") {
+  //     this.value = "";
+  //   }
+  // }
+
+  // function handleBlur() {
+  //   if (this.value === "") {
+  //     this.value = "Create new todo...";
+  //   }
+  // }
+
+  // const inputElement = document.querySelector("#nameProductToList");
+  // inputElement.addEventListener("focus", handleFocus);
+  // inputElement.addEventListener("blur", handleBlur);
 });

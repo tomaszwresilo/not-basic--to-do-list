@@ -4,3 +4,4 @@
 4. Dodać wyświetlanie All/Active/Completed
 5. Dodać proste ale ładne (nawet bardzo) style zwykłe i mobilne
 6. Zadbać o semantyke i dostępność 
+7. Zablokowac zaznaczanie i prawy przycisk
