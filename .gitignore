@@ -3,7 +3,7 @@ node_modules
 
 # Build files
 dist/
-.cashe/
+.cache/
 .parcel-cache/
 
 # lock files
@@ -26,7 +26,8 @@ npm-debug.log*
 
 # Jest Coverage
 coverage
-
 .history/
-
 yarn.lock
+
+# Notes
+todo.txt

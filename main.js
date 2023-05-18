@@ -20,13 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  shoppingAdButton.addEventListener("click", (event) => {
+  shoppingAdButton.addEventListener("click", event => {
     event.preventDefault();
     addElementToList();
   });
 
   // dodac to do funkcji
-  removeList.addEventListener("click", (event) => {
+  removeList.addEventListener("click", event => {
     event.preventDefault();
     while (shoppingList.firstChild) {
       shoppingList.removeChild(shoppingList.firstChild);
@@ -39,13 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  shoppingList.addEventListener("click", (event) => {
+  shoppingList.addEventListener("click", event => {
     if (event.target.style.textDecoration === "line-through") {
       event.target.style.textDecoration = "";
     } else {
       event.target.style.textDecoration = "line-through";
     }
-    document.addEventListener("click", (event) => {
+    document.addEventListener("click", event => {
       const target = event.target;
       const isOutside =
         !shoppingAdButton.contains(target) &&

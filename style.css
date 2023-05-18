@@ -5,9 +5,9 @@ body {
   min-height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(45deg, #1f4068, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
-  animation: gradient-animation 10s ease infinite;
+  animation: gradient-animation 30s ease infinite;
 }
 
 @keyframes gradient-animation {
@@ -28,6 +28,18 @@ main {
   border-radius: 5px;
   padding: 60px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 header {
@@ -61,6 +73,42 @@ h1 {
 h1 span {
   display: inline-block;
   animation: pulse 1.5s infinite;
+}
+
+h2 {
+  padding: 10px;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+h1 {
+  padding: 10px;
+  animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+h1 span.rocket {
+  display: inline-block;
+  animation: slideInFromRight 1s ease-in-out forwards;
 }
 
 @keyframes slideIn {
