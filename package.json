@@ -4,7 +4,7 @@
   "homepage": "https://tomaszwresilo.github.io/not-basic--to-do-list",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html -d build --public-url ."
   },
   "dependencies": {
     "@babel/preset-env": "^7.21.5",
