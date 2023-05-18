@@ -1,13 +1,19 @@
 {
   "name": "todo-application",
   "version": "1.1.0",
+  "homepage": "https://tomaszwresilo.github.io/not-basic--to-do-list",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "predeploy": "parcel build index.html",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@babel/preset-env": "^7.21.5",
     "bootstrap": "^5.3.0-alpha3",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-prettier": "^0.2.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
