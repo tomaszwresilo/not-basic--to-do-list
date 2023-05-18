@@ -16,44 +16,71 @@ document.addEventListener("DOMContentLoaded", () => {
       newLi.innerText = shoppingInput.value;
       shoppingList.appendChild(newLi);
       shoppingInput.value = "";
-      // shoppingInput.placeholder = "Create new todo...";
     }
   }
 
-  shoppingAdButton.addEventListener("click", event => {
-    event.preventDefault();
-    addElementToList();
-  });
-
-  // dodac to do funkcji
-  removeList.addEventListener("click", event => {
-    event.preventDefault();
+  function removeListItems() {
     while (shoppingList.firstChild) {
       shoppingList.removeChild(shoppingList.firstChild);
     }
-  });
+    updateTaskCounters();
+  }
 
-  shoppingInput.addEventListener("keypress", function(event) {
+  function toggleTask(event) {
+    const target = event.target;
+    if (target.style.textDecoration === "line-through") {
+      target.style.textDecoration = "";
+      doneTaskCounter--;
+    } else {
+      target.style.textDecoration = "line-through";
+      doneTaskCounter++;
+    }
+    updateTaskCounters();
+  }
+
+  function updateTaskCounters() {
+    let listItems = shoppingList.querySelectorAll("li");
+    allTaskCounter = listItems.length;
+    activeTaskCounter = allTaskCounter - doneTaskCounter;
+    document.querySelector("#allTask").innerText = allTaskCounter;
+    document.querySelector("#activeTask").innerText = activeTaskCounter;
+    document.querySelector("#doneTask").innerText = doneTaskCounter;
+  }
+
+  function clearInput(event) {
+    const target = event.target;
+    const isOutside =
+      !shoppingAdButton.contains(target) &&
+      !shoppingInput.contains(target) &&
+      !removeList.contains(target);
+    if (isOutside && shoppingInput.value !== "") {
+      shoppingInput.value = "";
+    }
+  }
+
+  function handleAddButtonClick(event) {
+    activeTaskCounter = 0;
+    doneTaskCounter = 0;
+    allTaskCounter = 0;
+    event.preventDefault();
+    addElementToList();
+    updateTaskCounters();
+  }
+
+  function handleEnterKeyPress(event) {
     if (event.key === "Enter") {
       addElementToList();
+      updateTaskCounters();
     }
-  });
+  }
 
-  shoppingList.addEventListener("click", event => {
-    if (event.target.style.textDecoration === "line-through") {
-      event.target.style.textDecoration = "";
-    } else {
-      event.target.style.textDecoration = "line-through";
-    }
-    document.addEventListener("click", event => {
-      const target = event.target;
-      const isOutside =
-        !shoppingAdButton.contains(target) &&
-        !shoppingInput.contains(target) &&
-        !removeList.contains(target);
-      if (isOutside && shoppingInput.value !== "") {
-        shoppingInput.value = "";
-      }
-    });
-  });
+  shoppingAdButton.addEventListener("click", handleAddButtonClick);
+  removeList.addEventListener("click", removeListItems);
+  shoppingInput.addEventListener("keypress", handleEnterKeyPress);
+  shoppingList.addEventListener("click", toggleTask);
+  document.addEventListener("click", clearInput);
+
+  let activeTaskCounter = 0;
+  let doneTaskCounter = 0;
+  let allTaskCounter = 0;
 });
