@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const allTaskCounter = taskItems.length;
     let doneTaskCounter = 0;
 
-    taskItems.forEach(item => {
+    taskItems.forEach((item) => {
       if (item.classList.contains("completed")) {
         doneTaskCounter++;
       }
