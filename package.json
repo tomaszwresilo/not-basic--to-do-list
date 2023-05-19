@@ -8,7 +8,6 @@
     "deploy": "gh-pages -d dist",
     "postdeploy": "echo https://tomaszwresilo.github.io/not-basic--to-do-list/"
   },
-  },
   "dependencies": {
     "@babel/preset-env": "^7.21.5",
     "bootstrap": "^5.3.0-alpha3",
