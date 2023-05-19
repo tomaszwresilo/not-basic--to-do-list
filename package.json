@@ -5,7 +5,7 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "deploy": "npm run build && gh-pages -d not-basic--to-do-list",
+    "deploy": "npm run build && gh-pages -d dist",
     "postdeploy": "echo https://tomaszwresilo.github.io/not-basic--to-do-list"
   },
   "dependencies": {
