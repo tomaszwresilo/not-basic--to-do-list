@@ -4,7 +4,7 @@
   "version": "1.1.0",
   "scripts": {
     "start": "parcel index.html",
-    "predeploy": "rm -rf dist && parcel build index.html --public-url https://tomaszwresilo.github.io/not-basic--to-do-list/",
+    "predeploy": "rm -rf dist && parcel build index.html --no-source-maps --public-url https://tomaszwresilo.github.io/not-basic--to-do-list/",
     "deploy": "gh-pages -d dist",
     "postdeploy": "echo https://tomaszwresilo.github.io/not-basic--to-do-list/"
   },
