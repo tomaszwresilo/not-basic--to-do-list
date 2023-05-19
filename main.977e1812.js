@@ -73,4 +73,4 @@ document.addEventListener("DOMContentLoaded", function () {
   var allTaskCounter = 0;
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=/main.977e1812.js.map
+//# sourceMappingURL=https://tomaszwresilo.github.io/not-basic--to-do-list/main.977e1812.js.map
