@@ -4,9 +4,10 @@
   "version": "1.1.0",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html",
-    "deploy": "npm run build && gh-pages -d dist --public-url /not-basic--to-do-list",
-    "postdeploy": "echo https://tomaszwresilo.github.io/not-basic--to-do-list"
+    "predeploy": "rm -rf dist && parcel build index.html --public-url https://tomaszwresilo.github.io/not-basic--to-do-list/",
+    "deploy": "gh-pages -d dist",
+    "postdeploy": "echo https://tomaszwresilo.github.io/not-basic--to-do-list/"
+  },
   },
   "dependencies": {
     "@babel/preset-env": "^7.21.5",
