@@ -313,6 +313,25 @@ h2 {
   padding: 10px;
 }
 
+ul {
+  font-weight: bold;
+  padding: 0;
+  border: 1px solid #ddd;
+}
+
+ul li {
+  padding: 8px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+ul li.completed {
+  text-decoration: line-through;
+}
+
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);

@@ -4,17 +4,26 @@ document.addEventListener("DOMContentLoaded", function () {
   var shoppingAdButton = document.querySelector("#addToList");
   var shoppingInput = document.querySelector("#nameProductToList");
   var removeList = document.querySelector("#removeList");
+  var inputErrorMessage = "Enter something!";
+  var listItemSelector = "li";
+  var allTaskCounterSelector = "#allTask";
+  var activeTaskCounterSelector = "#activeTask";
+  var doneTaskCounterSelector = "#doneTask";
+  var allTaskCounterElement = document.querySelector(allTaskCounterSelector);
+  var activeTaskCounterElement = document.querySelector(activeTaskCounterSelector);
+  var doneTaskCounterElement = document.querySelector(doneTaskCounterSelector);
   document.onselectstart = function () {
     return false;
   };
   function addElementToList() {
     if (shoppingInput.value === "") {
-      alert("Enter something!");
+      alert(inputErrorMessage);
     } else {
       var newLi = document.createElement("li");
       newLi.innerText = shoppingInput.value;
       shoppingList.appendChild(newLi);
       shoppingInput.value = "";
+      updateTaskCounters();
     }
   }
   function removeListItems() {
@@ -23,24 +32,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     updateTaskCounters();
   }
-  function toggleTask(event) {
+  function markTaskAsDone(event) {
     var target = event.target;
-    if (target.style.textDecoration === "line-through") {
-      target.style.textDecoration = "";
-      doneTaskCounter--;
-    } else {
-      target.style.textDecoration = "line-through";
-      doneTaskCounter++;
-    }
+    target.classList.toggle("completed");
     updateTaskCounters();
   }
   function updateTaskCounters() {
-    var listItems = shoppingList.querySelectorAll("li");
-    allTaskCounter = listItems.length;
-    activeTaskCounter = allTaskCounter - doneTaskCounter;
-    document.querySelector("#allTask").innerText = allTaskCounter;
-    document.querySelector("#activeTask").innerText = activeTaskCounter;
-    document.querySelector("#doneTask").innerText = doneTaskCounter;
+    var taskItems = shoppingList.querySelectorAll(listItemSelector);
+    var allTaskCounter = taskItems.length;
+    var doneTaskCounter = 0;
+    taskItems.forEach(function (item) {
+      if (item.classList.contains("completed")) {
+        doneTaskCounter++;
+      }
+    });
+    var activeTaskCounter = allTaskCounter - doneTaskCounter;
+    allTaskCounterElement.innerText = allTaskCounter;
+    activeTaskCounterElement.innerText = activeTaskCounter;
+    doneTaskCounterElement.innerText = doneTaskCounter;
   }
   function clearInput(event) {
     var target = event.target;
@@ -50,26 +59,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   function handleAddButtonClick(event) {
-    activeTaskCounter = 0;
-    doneTaskCounter = 0;
-    allTaskCounter = 0;
     event.preventDefault();
     addElementToList();
-    updateTaskCounters();
   }
   function handleEnterKeyPress(event) {
     if (event.key === "Enter") {
       addElementToList();
-      updateTaskCounters();
     }
   }
   shoppingAdButton.addEventListener("click", handleAddButtonClick);
   removeList.addEventListener("click", removeListItems);
   shoppingInput.addEventListener("keypress", handleEnterKeyPress);
-  shoppingList.addEventListener("click", toggleTask);
+  shoppingList.addEventListener("click", markTaskAsDone);
   document.addEventListener("click", clearInput);
-  var activeTaskCounter = 0;
-  var doneTaskCounter = 0;
-  var allTaskCounter = 0;
+  updateTaskCounters();
 });
 },{}]},{},["epB2"], null)
