@@ -143,25 +143,18 @@ h1 span.rocket {
   animation: slideInFromRight 1s ease-in-out forwards;
 }
 
-@keyframes slideIn {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
 span {
   display: inline-block;
   animation: slideIn 1s ease-in-out;
 }
+
 .btn {
   margin-top: 10px;
 }
+.completed {
+  text-decoration: line-through;
+}
+
 .remove-button {
   background: none;
   border: none;
@@ -169,6 +162,11 @@ span {
   font-size: 1rem;
   padding: 0;
   color: red;
+}
+
+.edit-button {
+  background-color: transparent;
+  border: none;
 }
 
 #addToList,
@@ -206,30 +204,6 @@ span {
 #addToList:active,
 #removeList:active {
   box-shadow: none;
-}
-
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }
 
 #addToList {

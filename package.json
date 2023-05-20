@@ -9,12 +9,13 @@
     "postdeploy": "echo https://tomaszwresilo.github.io/not-basic--to-do-list/"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.21.5",
     "bootstrap": "^5.3.0-alpha3",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-prettier": "^0.2.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
     "gh-pages": "^5.0.0"
   }
 }

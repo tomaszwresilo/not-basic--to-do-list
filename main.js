@@ -24,21 +24,34 @@ document.addEventListener("DOMContentLoaded", () => {
       alert(inputErrorMessage);
     } else {
       const newLi = document.createElement("li");
-      newLi.innerText = shoppingInput.value;
+      const taskName = document.createElement("span");
+      taskName.classList.add("task-name");
+      taskName.textContent = shoppingInput.value;
+      const removeButton = document.createElement("button");
+      removeButton.classList.add("remove-button");
+      removeButton.innerHTML = "❌";
+      newLi.appendChild(taskName);
+      newLi.appendChild(removeButton);
       shoppingList.appendChild(newLi);
-      createRemoveButtonElement(newLi);
       shoppingInput.value = "";
 
+      createRemoveButtonElement(newLi);
+      createEditButtonElement(newLi);
       updateTaskCounters();
     }
   }
 
   function createRemoveButtonElement(listItem) {
-    const removeButton = document.createElement("button");
-    removeButton.innerHTML = "❌";
-    removeButton.classList.add("remove-button");
-    listItem.appendChild(removeButton);
+    const removeButton = listItem.querySelector(".remove-button");
     removeButton.addEventListener("click", removeItem);
+  }
+
+  function createEditButtonElement(listItem) {
+    const editButton = document.createElement("button");
+    editButton.innerHTML = "🖊️";
+    editButton.classList.add("edit-button");
+    listItem.appendChild(editButton);
+    editButton.addEventListener("click", editItem);
   }
 
   function removeItem(event) {
@@ -47,19 +60,60 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTaskCounters();
   }
 
-  function removeListItems() {
-    while (shoppingList.firstChild) {
-      shoppingList.firstChild.remove();
+  function editItem(event) {
+    const listItem = event.target.parentElement;
+    const taskName = listItem.querySelector(".task-name");
+    const taskNameText = taskName.innerText;
+
+    const input = document.createElement("input");
+    input.value = taskNameText;
+    input.classList.add("edit-input");
+
+    listItem.replaceChild(input, taskName);
+
+    input.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        const updatedTaskName = input.value.trim();
+        if (updatedTaskName !== "") {
+          const newTaskName = document.createElement("span");
+          newTaskName.innerText = updatedTaskName;
+          newTaskName.classList.add("task-name");
+
+          listItem.replaceChild(newTaskName, input);
+        }
+      }
+    });
+
+    input.focus();
+  }
+
+  function toggleTaskStatus(listItem) {
+    listItem.classList.toggle("completed");
+
+    const taskName = listItem.querySelector("span.task-name");
+    taskName.classList.toggle("completed");
+
+    const taskStatus = listItem.querySelector(".task-status");
+    if (listItem.classList.contains("completed")) {
+      taskStatus.innerText = "Done";
+    } else {
+      taskStatus.innerText = "Active";
     }
     updateTaskCounters();
   }
 
   function markTaskAsDone(event) {
-    const listItem = event.target;
-    if (listItem.tagName === "LI") {
-      listItem.classList.toggle("completed");
+    const target = event.target;
+    if (target.tagName === "SPAN") {
+      const listItem = target.parentElement;
+      toggleTaskStatus(listItem);
       updateTaskCounters();
     }
+  }
+
+  function removeListItems() {
+    shoppingList.innerHTML = "";
+    updateTaskCounters();
   }
 
   function updateTaskCounters() {

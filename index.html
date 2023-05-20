@@ -47,27 +47,30 @@
       </button>
       <p>Also you can use Enter to add task...</p>
       <ul class="list-unstyled"></ul>
+
+      <div class="taskFilters">
+        <button id="allTask" class="btn btn-primary task-filter active">
+          All
+        </button>
+        <button id="activeTask" class="btn btn-primary task-filter">
+          Active
+        </button>
+        <button id="doneTask" class="btn btn-primary task-filter">
+          Done
+        </button>
+      </div>
+    </main>
+    <footer>
       <div class="taskStatus">
         <span>Active Tasks: <b id="activeTaskCounter">0</b></span>
         <span>Done Tasks: <b id="doneTaskCounter">0</b></span>
         <span>All Tasks: <b id="allTaskCounter">0</b></span>
       </div>
-      <div class="taskFilters">
-        <button id="allTask" class="btn btn-primary task-filter active">
-          All Tasks
-        </button>
-        <button id="activeTask" class="btn btn-primary task-filter">
-          Active Tasks
-        </button>
-        <button id="doneTask" class="btn btn-primary task-filter">
-          Done Tasks
-        </button>
-      </div>
-    </main>
-    <footer>
       <a href="https://github.com/tomaszwresilo">🛸</a>
     </footer>
-    <script src="main.js" type="module"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
