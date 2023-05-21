@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const allTaskCounterElement = document.querySelector("#allTaskCounter");
   const activeTaskCounterElement = document.querySelector("#activeTaskCounter");
   const doneTaskCounterElement = document.querySelector("#doneTaskCounter");
-
   document.onselectstart = function() {
     return false;
   };
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       taskName.textContent = shoppingInput.value;
       const removeButton = document.createElement("button");
       removeButton.classList.add("remove-button");
-      removeButton.innerHTML = "❌";
+      removeButton.innerHTML = " ❌";
       newLi.appendChild(taskName);
       newLi.appendChild(removeButton);
       shoppingList.appendChild(newLi);
@@ -89,16 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function toggleTaskStatus(listItem) {
     listItem.classList.toggle("completed");
-
     const taskName = listItem.querySelector("span.task-name");
     taskName.classList.toggle("completed");
 
-    const taskStatus = listItem.querySelector(".task-status");
-    if (listItem.classList.contains("completed")) {
-      taskStatus.innerText = "Done";
-    } else {
-      taskStatus.innerText = "Active";
-    }
     updateTaskCounters();
   }
 
@@ -121,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const allTaskCounter = taskItems.length;
     let doneTaskCounter = 0;
 
-    taskItems.forEach(item => {
+    taskItems.forEach((item) => {
       if (item.classList.contains("completed")) {
         doneTaskCounter++;
       }
@@ -133,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
     activeTaskCounterElement.innerText = activeTaskCounter;
     doneTaskCounterElement.innerText = doneTaskCounter;
 
-    taskItems.forEach(item => {
+    taskItems.forEach((item) => {
       if (taskFilter === "all") {
         item.style.display = "block";
       } else if (taskFilter === "active") {
@@ -185,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const taskFilterLinks = document.querySelectorAll(".task-filter");
-    taskFilterLinks.forEach(link => {
+    taskFilterLinks.forEach((link) => {
       if (link === target) {
         link.classList.add("active");
       } else {
@@ -201,7 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", clearInput);
   shoppingInput.addEventListener("keypress", handleEnterKeyPress);
   shoppingList.addEventListener("click", markTaskAsDone);
-
   allTaskLink.addEventListener("click", handleTaskFilterClick);
   activeTaskLink.addEventListener("click", handleTaskFilterClick);
   doneTaskLink.addEventListener("click", handleTaskFilterClick);

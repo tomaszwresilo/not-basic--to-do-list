@@ -97,12 +97,12 @@ ul {
 }
 
 ul li {
-  padding: 8px 16px;
   border-bottom: 1px solid #ddd;
+  padding: 5px;
 }
 
-ul li:last-child {
-  border-bottom: none;
+ul li span {
+  text-decoration: none;
 }
 
 ul li.completed {
@@ -148,27 +148,22 @@ span {
   animation: slideIn 1s ease-in-out;
 }
 
-.btn {
-  margin-top: 10px;
-}
 .completed {
   text-decoration: line-through;
 }
 
 .remove-button {
-  background: none;
+  background-color: transparent;
   border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  padding: 0;
-  color: red;
+  padding: 0px;
+  margin: 0px;
 }
-
 .edit-button {
   background-color: transparent;
   border: none;
+  padding: 0px;
+  margin: 0px;
 }
-
 #addToList,
 #removeList {
   margin: 10px;
