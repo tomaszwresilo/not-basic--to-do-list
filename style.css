@@ -164,6 +164,14 @@ span {
   padding: 0px;
   margin: 0px;
 }
+
+.confirm-button {
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}
+
 #addToList,
 #removeList {
   margin: 10px;
