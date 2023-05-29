@@ -231,7 +231,8 @@ footer {
 
 @media (max-width: 768px) {
   main {
-    padding: 30px;
+    overflow-y: auto;
+    max-height: 50vh;
   }
 
   h1 {
@@ -240,6 +241,7 @@ footer {
 
   header {
     font-size: 16px;
+    max-height: 22vh;
   }
 
   footer {
