@@ -1,6 +1,6 @@
 # ToDo Application 📋✅
 
-The ToDo Application is a feature-rich task management tool built using HTML, CSS, and JavaScript. It allows you to create, organize, and track your tasks effectively.
+The ToDo Application is a feature-rich task management tool. It allows you to create, organize, and track your tasks effectively.
 
 ## Features 🌟
 
@@ -18,6 +18,14 @@ The ToDo Application is a feature-rich task management tool built using HTML, CS
 ## Demo 🌐
 
 You can try the application live by visiting the [ToDo Application Demo](https://tomaszwresilo.github.io/not-basic--to-do-list/).
+
+## Technology 🔨
+
+| HTML          | CSS           | JavaScript     |
+| ------------- | ------------- | -------------- |
+| Semantic HTML | Nested styles | Event Listener |
+| Forms         | Media queries | localStorage   |
+|               | @keyframe     |                |
 
 ## Getting Started 🚀
 
