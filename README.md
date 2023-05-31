@@ -37,7 +37,7 @@ To get a local copy of the project and run it, you can follow these steps:
 2. Press the "Add" button or hit Enter to add the task to the list.
 3. To mark a task as completed, simply click on it.
 4. To edit a task name, click the edit button next to the task and confirm the changes.
-   5 .Use the task filters (All, Active, Done) to view specific types of tasks.
-   6 .To remove all tasks from the list, click the "Remove List" button.
+5. Use the task filters (All, Active, Done) to view specific types of tasks.
+6. To remove all tasks from the list, click the "Remove List" button.
 
 ## Happy task management! 🚀✏️
