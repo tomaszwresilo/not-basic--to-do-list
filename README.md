@@ -21,11 +21,11 @@ You can try the application live by visiting the [ToDo Application Demo](https:/
 
 ## Technology 🔨
 
-| HTML          | CSS           | JavaScript     |
-| ------------- | ------------- | -------------- |
-| Semantic HTML | Nested styles | Event Listener |
-| Forms         | Media queries | localStorage   |
-|               | @keyframe     |                |
+| HTML          | CSS           | JavaScript     | Libraries |
+| ------------- | ------------- | -------------- | --------- |
+| Semantic HTML | Nested styles | Event Listener | Bootstrap |
+| Forms         | Media queries | localStorage   |           |
+|               | @keyframe     |                |           |
 
 ## Getting Started 🚀
 
